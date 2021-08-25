@@ -8,7 +8,7 @@
         {
             return (user.IsAdmin || MadeBy == user);
         }
-        
+
     }
 
     public class User
