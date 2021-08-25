@@ -15,6 +15,7 @@ namespace TestNinja.UnitTests
         }
 
         [Test]
+        [Ignore("Because it's lame test.")]
         public void Add_WhenCalled_ReturnSumOfArguments()
         {
             var result = _math.Add(1, 2);
