@@ -4,14 +4,14 @@ namespace TestNinja.Fundamentals
 {
     public class ErrorLogger
     {
-        public string LastError { get; set; }
+        public string LastError { get; private set; }
 
 
         public event EventHandler<Guid> ErrorLogged;
 
         public void Log(string error)
         {
-            if (String.IsNullOrWhiteSpace(error))
+            if (string.IsNullOrWhiteSpace(error))
                 throw new ArgumentNullException();
 
             LastError = error;
