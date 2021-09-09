@@ -19,7 +19,7 @@ namespace TestNinja.Fundamentals
             // Write the log to a storage
             // ...
 
-            OnErrorLogged(new Guid());
+            OnErrorLogged(Guid.NewGuid());
         }
 
 

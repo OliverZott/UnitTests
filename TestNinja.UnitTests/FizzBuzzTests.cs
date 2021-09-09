@@ -10,8 +10,8 @@ namespace TestNinja.UnitTests
         [TestCase(17, "17")]
         [TestCase(15, "FizzBuzz")]
         [TestCase(-6, "Fizz")]
-        [TestCase(10, "Buss")]
-        public void GetOutpuut_PassVariousNumbers_ReturnExpectedValues(int a, string expected)
+        [TestCase(10, "Buzz")]
+        public void GetOutput_PassVariousNumbers_ReturnExpectedValues(int a, string expected)
         {
             var result = FizzBuzz.GetOutput(a);
 
