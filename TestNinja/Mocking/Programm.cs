@@ -14,7 +14,7 @@ namespace TestNinja.Mocking
             var videoService = new VideoService();
 
             // In reality a DI-Framework is used instead of "new"íng object!
-            var title = videoService.ReadVideoTitle(new FileReader());
+            var title = videoService.ReadVideoTitle();
         }
     }
 }

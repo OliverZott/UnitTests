@@ -1,22 +1,28 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
-using Newtonsoft.Json;
 
 namespace TestNinja.Mocking
 {
     public class VideoService
     {
-
         // DI via:
         //   - Parameter
         //   - Propertie
         //   - Constructor
-        public string ReadVideoTitle(IFileReader fileReader)
+
+        public IFileReader FileReader { get; set; }
+
+        public VideoService()
         {
-            var str = fileReader.Read("video.txt");
+            FileReader = new FileReader();
+        }
+
+        public string ReadVideoTitle()
+        {
+            var str = FileReader.Read("video.txt");
             var video = JsonConvert.DeserializeObject<Video>(str);
             if (video == null)
                 return "Error parsing the video.";
@@ -26,14 +32,14 @@ namespace TestNinja.Mocking
         public string GetUnprocessedVideosAsCsv()
         {
             var videoIds = new List<int>();
-            
+
             using (var context = new VideoContext())
             {
-                var videos = 
+                var videos =
                     (from video in context.Videos
-                    where !video.IsProcessed
-                    select video).ToList();
-                
+                     where !video.IsProcessed
+                     select video).ToList();
+
                 foreach (var v in videos)
                     videoIds.Add(v.Id);
 
