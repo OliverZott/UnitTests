@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestNinja.Mocking;
+﻿using TestNinja.Mocking;
 
 namespace TestNinja.UnitTests
 {
@@ -11,6 +6,7 @@ namespace TestNinja.UnitTests
     {
         public string Read(string path)
         {
+            //return "{}";
             return "";
         }
     }
