@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31613.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31710.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNinja", "TestNinja\TestNinja.csproj", "{7328740E-4B78-464F-8352-65D887F2145F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNinja.UnitTests", "TestNinja.UnitTests\TestNinja.UnitTests.csproj", "{7F9BA067-D1C6-41DD-B8A3-C6A2CA4E540B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{3D180903-8D41-4450-A158-021C4ABE4537}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7F9BA067-D1C6-41DD-B8A3-C6A2CA4E540B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F9BA067-D1C6-41DD-B8A3-C6A2CA4E540B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F9BA067-D1C6-41DD-B8A3-C6A2CA4E540B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D180903-8D41-4450-A158-021C4ABE4537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D180903-8D41-4450-A158-021C4ABE4537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D180903-8D41-4450-A158-021C4ABE4537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D180903-8D41-4450-A158-021C4ABE4537}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
