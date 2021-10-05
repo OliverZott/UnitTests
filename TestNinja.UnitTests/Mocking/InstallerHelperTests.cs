@@ -1,5 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
+using System.Net;
 using TestNinja.Mocking;
 
 namespace TestNinja.UnitTests.Mocking
@@ -18,9 +19,19 @@ namespace TestNinja.UnitTests.Mocking
         }
 
         [Test]
-        public void DownloadInstaller_CorrectInput_ReturnsTrue()
+        public void DownloadInstaller_DownloadFails_ReturnsFalse()
         {
-            _fileDownloader.Setup(x => x.DownloadFile("http://example.com/name/surname", "test")).Returns(true);
+            _fileDownloader.Setup(x => x.DownloadFile(It.IsAny<string>(), It.IsAny<string>())).Throws<WebException>();
+
+            var result = _installerHelper.DownloadInstaller("name", "surname");
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void DownloadInstaller_DownloadCompletes_ReturnsTrue()
+        {
+            //_fileDownloader.Setup(x => x.DownloadFile(It.IsAny<string>(), It.IsAny<string>()));
 
             var result = _installerHelper.DownloadInstaller("name", "surname");
 

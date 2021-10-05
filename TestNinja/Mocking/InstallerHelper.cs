@@ -1,4 +1,6 @@
-﻿namespace TestNinja.Mocking
+﻿using System.Net;
+
+namespace TestNinja.Mocking
 {
     public class InstallerHelper
     {
@@ -14,7 +16,15 @@
         {
             var url = $"http://example.com/{customerName}/{installerName}";
 
-            return _fileDownloader.DownloadFile(url, _setupDestinationFile);
+            try
+            {
+                _fileDownloader.DownloadFile(url, _setupDestinationFile);
+                return true;
+            }
+            catch (WebException)
+            {
+                return false;
+            }
         }
     }
 }
