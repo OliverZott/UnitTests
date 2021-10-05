@@ -16,10 +16,10 @@ namespace TestNinja.UnitTests.Mocking
 
             var result = product.GetPrice(customer);
 
-            Assert.That(result, Is.EqualTo(product.ListPrice));
+            Assert.That(result, Is.EqualTo(product.ListPrice * 0.7f));  // Better use calculation or magic-value ?????
         }
 
-        // Bad exmaple --> Mocking abuse
+        // Bad example --> Mocking abuse
         [Test]
         public void GetPrice_CustomerIsGold_ReturnsCheaperPrice2()
         {
