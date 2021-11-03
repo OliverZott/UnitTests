@@ -4,18 +4,18 @@ namespace TestNinja.Mocking
 {
     public class EmployeeController
     {
-        private EmployeeContext _db;
+        private readonly IEmployeeStorage _employeeStorage;
 
-        public EmployeeController()
+        public EmployeeController(IEmployeeStorage employeeStorage = null)
         {
-            _db = new EmployeeContext();
+            this._employeeStorage = employeeStorage ?? new EmployeeStorage();
         }
 
+        // 1. Test: method returns right result - State Based Testing
+        // 2. Test: pther method deletes the employe (gets called by controller)
         public ActionResult DeleteEmployee(int id)
         {
-            var employee = _db.Employees.Find(id);
-            _db.Employees.Remove(employee);
-            _db.SaveChanges();
+            _employeeStorage.DeleteEmployee(id);
             return RedirectToAction("Employees");
         }
 
@@ -26,9 +26,9 @@ namespace TestNinja.Mocking
     }
 
     public class ActionResult { }
- 
+
     public class RedirectResult : ActionResult { }
-    
+
     public class EmployeeContext
     {
         public DbSet<Employee> Employees { get; set; }
