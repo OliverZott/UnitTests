@@ -2,14 +2,14 @@ using System;
 
 namespace TestNinja.Mocking
 {
-    public class HousekeeperHelper
+    public class HousekeeperService
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IStatementGenerator statementGenerator;
         private readonly IEmailSender emailSender;
         private readonly IXtraMessageBox xtraMessageBox;
 
-        public HousekeeperHelper(
+        public HousekeeperService(
             IUnitOfWork unitOfWork,
             IStatementGenerator statementGenerator,
             IEmailSender emailSender,
@@ -21,7 +21,7 @@ namespace TestNinja.Mocking
             this.xtraMessageBox = xtraMessageBox;
         }
 
-        public bool SendStatementEmails(DateTime statementDate)
+        public void SendStatementEmails(DateTime statementDate)
         {
             var housekeepers = unitOfWork.Query<Housekeeper>();
 
@@ -49,13 +49,7 @@ namespace TestNinja.Mocking
                         MessageBoxButtons.OK);
                 }
             }
-
-            return true;
         }
-
-
-
-
     }
 
     public enum MessageBoxButtons
